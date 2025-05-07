@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-7fcfb258757a6fe2e372e6385e47fdff"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Crime Type", "type": "nominal"}, "tooltip": [{"field": "Crime Type", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "Count", "type": "quantitative"}, "y": {"field": "Crime Type", "sort": "-x", "type": "nominal"}}, "height": 400, "title": "Top 10 Reported Crimes in Chicago", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-7fcfb258757a6fe2e372e6385e47fdff": [{"Crime Type": "THEFT", "Count": 59361}, {"Crime Type": "BATTERY", "Count": 44588}, {"Crime Type": "CRIMINAL DAMAGE", "Count": 27196}, {"Crime Type": "ASSAULT", "Count": 22686}, {"Crime Type": "MOTOR VEHICLE THEFT", "Count": 19591}, {"Crime Type": "OTHER OFFENSE", "Count": 16847}, {"Crime Type": "DECEPTIVE PRACTICE", "Count": 14994}, {"Crime Type": "BURGLARY", "Count": 8466}, {"Crime Type": "ROBBERY", "Count": 8179}, {"Crime Type": "WEAPONS VIOLATION", "Count": 7145}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

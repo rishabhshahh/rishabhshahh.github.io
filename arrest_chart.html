@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-fbed34edfc60f57723f5e6a5b5f36d2d"}, "mark": {"type": "bar"}, "encoding": {"tooltip": [{"field": " PRIMARY DESCRIPTION", "type": "nominal"}, {"field": "Arrest Rate", "type": "quantitative"}], "x": {"field": "Arrest Rate", "type": "quantitative"}, "y": {"field": " PRIMARY DESCRIPTION", "sort": "-x", "title": "Crime Type", "type": "nominal"}}, "height": 400, "title": "Top Crime Types by Arrest Rate", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-fbed34edfc60f57723f5e6a5b5f36d2d": [{" PRIMARY DESCRIPTION": "GAMBLING", "N": 0, "Y": 18, "Arrest Rate": 1.0}, {" PRIMARY DESCRIPTION": "CONCEALED CARRY LICENSE VIOLATION", "N": 3, "Y": 247, "Arrest Rate": 0.988}, {" PRIMARY DESCRIPTION": "LIQUOR LAW VIOLATION", "N": 7, "Y": 186, "Arrest Rate": 0.9637305699481865}, {" PRIMARY DESCRIPTION": "NARCOTICS", "N": 279, "Y": 6392, "Arrest Rate": 0.9581771848298606}, {" PRIMARY DESCRIPTION": "PROSTITUTION", "N": 14, "Y": 273, "Arrest Rate": 0.9512195121951219}, {" PRIMARY DESCRIPTION": "PUBLIC INDECENCY", "N": 1, "Y": 12, "Arrest Rate": 0.9230769230769231}, {" PRIMARY DESCRIPTION": "INTERFERENCE WITH PUBLIC OFFICER", "N": 81, "Y": 691, "Arrest Rate": 0.8950777202072538}, {" PRIMARY DESCRIPTION": "NON-CRIMINAL", "N": 1, "Y": 3, "Arrest Rate": 0.75}, {" PRIMARY DESCRIPTION": "WEAPONS VIOLATION", "N": 2501, "Y": 4644, "Arrest Rate": 0.649965010496851}, {" PRIMARY DESCRIPTION": "OBSCENITY", "N": 25, "Y": 28, "Arrest Rate": 0.5283018867924528}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
